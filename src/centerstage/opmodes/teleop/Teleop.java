@@ -50,7 +50,7 @@ public class Teleop extends LinearOpMode {
         double rx = ((gamepad1.right_stick_y) * Math.sin(rh.getMc().currentAngle()) +
                 (gamepad1.right_stick_x) * Math.cos(rh.getMc().currentAngle()));
 
-        double maxSpeed = 0.7; // fix: rename. Named maxSpeed, but controls power?
+        double maxSpeed = 0.7;
         if (gunnerActive) {
             maxSpeed /= 2;
         }
