@@ -1,10 +1,9 @@
 package org.firstinspires.ftc.teamcode.lib;
 
-
 /**
- * For telling the robot what side and alliance it is on.
+ * Used in autonomous to tell the robot what side and alliance it is on.
  *
- * @author Nathan W
+ * @author Nathan W.
  */
 public class AutonomousControl {
     /**

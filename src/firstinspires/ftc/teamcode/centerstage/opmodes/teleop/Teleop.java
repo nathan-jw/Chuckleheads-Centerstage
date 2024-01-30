@@ -1,20 +1,15 @@
 package org.firstinspires.ftc.teamcode.centerstage.opmodes.teleop;
 
-// first
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 import org.firstinspires.ftc.teamcode.centerstage.RobotHardware;
-
-// our static stuff
-
 
 @TeleOp(name="Teleop", group="Linear Opmode")
 public class Teleop extends LinearOpMode {
     private double moveGripperServo = 0.0;
     private boolean gunnerActive = false;
-    
+
     private RobotHardware rh = null;
 
     @Override
@@ -51,7 +46,7 @@ public class Teleop extends LinearOpMode {
         double rx = ((gamepad1.right_stick_y) * Math.sin(rh.getMc().currentAngle()) +
                 (gamepad1.right_stick_x) * Math.cos(rh.getMc().currentAngle()));
 
-        double maxSpeed = 0.7;
+        double maxSpeed = 0.7; // fix: rename. Named maxSpeed, but controls power?
         if (gunnerActive) {
             maxSpeed /= 2;
         }

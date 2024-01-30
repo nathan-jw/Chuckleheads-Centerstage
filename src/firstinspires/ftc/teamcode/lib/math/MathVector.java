@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.lib.math;
 
-
 /**
  * Represents a vector
  * @author Neil N

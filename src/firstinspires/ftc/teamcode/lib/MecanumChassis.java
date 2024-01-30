@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import org.firstinspires.ftc.teamcode.lib.math.MathUtils;
 import org.firstinspires.ftc.teamcode.lib.AutonomousControl.Side;
 
-
 /**
  * Represents a robot chassis with four mecanum wheels, two odometry pods, and an IMU.
  * @author Nathan W.

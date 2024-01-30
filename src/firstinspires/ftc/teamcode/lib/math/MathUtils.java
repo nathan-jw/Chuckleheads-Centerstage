@@ -2,10 +2,9 @@ package org.firstinspires.ftc.teamcode.lib.math;
 
 import java.util.Arrays;
 
-
 /**
  * Various helpful math-related functions.
- * @author N/A
+ * @author Various
  */
 public class MathUtils {
     /**
@@ -101,16 +100,16 @@ public class MathUtils {
      * @return Value from -1 to 1 representing how much the robot should turn to reach the current angle.
      * This value can be plugged as the turn constant in the driving code
      */
-     public static double shortestAngleRemapped(double targetAngle, double currentAngle) {
+    public static double shortestAngleRemapped(double targetAngle, double currentAngle) {
         double moveConst = 0;
-        
+
         if (currentAngle > 0) {
             moveConst = -1 * (Math.abs(currentAngle) - targetAngle);
         }
         else {
             moveConst = -1 * (currentAngle - targetAngle);
         }
-        
+
         double other = (-1 * moveConst/Math.abs(moveConst)) * ((Math.PI*2) - Math.abs(moveConst));
         if (Math.abs(other) < Math.abs(moveConst)) {
             return other;

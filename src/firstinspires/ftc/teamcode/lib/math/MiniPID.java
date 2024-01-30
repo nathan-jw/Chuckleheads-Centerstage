@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.teamcode.lib.math;
 
-
 /**
  * Small, easy to use PID implementation with advanced controller capability.
  * Taken verbatim from https://github.com/tekdemo/MiniPID-Java

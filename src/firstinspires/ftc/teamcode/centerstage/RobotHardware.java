@@ -1,16 +1,15 @@
 package org.firstinspires.ftc.teamcode.centerstage;
 
 import org.firstinspires.ftc.teamcode.lib.MecanumChassis;
-import com.qualcomm.robotcore.hardware.DcMotorEx;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.hardware.bosch.BNO055IMU;
 
+import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
+import com.qualcomm.hardware.bosch.BNO055IMU;
 
 /**
  * Initializes hardware variables. Makes it so that one function call is
  * required in our teleop and autonomous files to get hardware variables.
- * @author Nathan W
+ * @author Nathan W.
  */
 public class RobotHardware {
     /**
