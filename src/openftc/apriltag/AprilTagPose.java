@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 
-package org.firstinspires.ftc.teamcode.openftc.apriltag;
+package org.openftc.apriltag;
 
 import org.firstinspires.ftc.robotcore.external.matrices.MatrixF;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;

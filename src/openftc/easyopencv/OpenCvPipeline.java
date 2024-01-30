@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 
-package org.firstinspires.ftc.teamcode.openftc.easyopencv;
+package org.openftc.easyopencv;
 
 import android.app.Activity;
 import android.app.ActivityManager;

@@ -19,7 +19,7 @@
  * SOFTWARE.
  */
 
-package org.firstinspires.ftc.teamcode.openftc.apriltag;
+package org.openftc.apriltag;
 
 import org.opencv.core.Point;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;

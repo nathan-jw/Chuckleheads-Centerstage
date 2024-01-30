@@ -1,6 +1,9 @@
+org.firstinspires.ftc.teamcode.centerstage
 org.firstinspires.ftc.teamcode.centerstage.opmodes.autonomous
 org.firstinspires.ftc.teamcode.centerstage.opmodes.teleop
-org.firstinspires.ftc.teamcode.centerstage.robothardware
-org.firstinspires.ftc.teamcode.lib.autonomouscontrol
+org.firstinspires.ftc.teamcode.centerstage.webcam
+org.firstinspires.ftc.teamcode.lib
 org.firstinspires.ftc.teamcode.lib.math
-org.firstinspires.ftc.teamcode.lib.mecanumchassis
+org.firstinspires.ftc.teamcode.webcam
+org.openftc.apriltag
+org.openftc.easyopencv
