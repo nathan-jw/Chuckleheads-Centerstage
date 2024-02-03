@@ -29,7 +29,9 @@ public class Teleop extends LinearOpMode {
             ImuReinit();
             launchDrone();
             intake();
+            slide();
             gripper();
+            hook();
 
             telemetry.update();
         }
@@ -71,7 +73,7 @@ public class Teleop extends LinearOpMode {
     
     
     private void launchDrone() {
-        if (gamepad2.a && gamepad2.b) {
+        if (gamepad2.start) {
             rh.launchDrone();
         }
     }
@@ -79,6 +81,18 @@ public class Teleop extends LinearOpMode {
     
     private void intake() {
         rh.intake(gamepad2.left_trigger - gamepad2.right_trigger);
+    }
+    
+    
+    private void hook() {
+        double power = (gamepad2.dpad_left ? 1 : 0) - (gamepad2.dpad_right ? 1 : 0);
+        rh.hook(power);
+    }
+    
+    
+    private void slide() {
+        double power = (gamepad2.left_bumper ? 1 : 0) - (gamepad2.right_bumper ? 1 : 0);
+        rh.slide(power);
     }
     
     

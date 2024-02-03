@@ -22,6 +22,10 @@ public class RobotHardware {
     
     private DcMotorEx intakeLiftMotor = null;
     
+    private DcMotorEx hook = null;
+    
+    private DcMotorEx slide = null;
+    
     private Servo droneLauncher = null;
     
     private Servo gripperLowerLeft = null;
@@ -54,7 +58,10 @@ public class RobotHardware {
                 
         intake = hardwareMap.get(DcMotorEx.class, "intake");
         intake.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
-                
+        
+        slide = hardwareMap.get(DcMotorEx.class, "slide");
+        slide.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+
         droneLauncher = hardwareMap.get(Servo.class, "droneLauncher");
         droneLauncher.setPosition(0);
         
@@ -63,10 +70,11 @@ public class RobotHardware {
         gripperLowerLeft = hardwareMap.get(Servo.class, "gripperLowerLeft");
         gripperLowerRight = hardwareMap.get(Servo.class, "gripperLowerRight");
         gripperLowerRight.setDirection(Servo.Direction.REVERSE);
-        gripperUpperRight.setDirection(Servo.Direction.REVERSE);
+        gripperUpperLeft.setDirection(Servo.Direction.REVERSE);
         lowerGripper();
         
         intakeLiftMotor = hardwareMap.get(DcMotorEx.class, "intakeLiftMotor");
+        intakeLiftMotor.setDirection(DcMotorEx.Direction.REVERSE);
         intakeLiftMotor.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
         intakeLiftMotor.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
         
@@ -74,6 +82,10 @@ public class RobotHardware {
         intakeLiftRight = hardwareMap.get(Servo.class, "intakeLiftRight");
         intakeLiftRight.setDirection(Servo.Direction.REVERSE);
         lowerIntake();
+        
+        hook = hardwareMap.get(DcMotorEx.class, "hook");
+        hook.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+        hook.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
     }
     
     
@@ -87,25 +99,31 @@ public class RobotHardware {
     }
     
     
+    public void slide(double power) {
+        slide.setPower(power);
+    }
+    
+    
     public void lowerGripper() {
-        gripperLowerLeft.setPosition(0.025);
-        gripperLowerRight.setPosition(0.025);
-        // gripperUpperLeft.setPosition(0);
-        // gripperUpperRight.setPosition(1.0);
+        gripperLowerLeft.setPosition(0.05);
+        gripperLowerRight.setPosition(0.05);
+        gripperUpperLeft.setPosition(1);
+        gripperUpperRight.setPosition(1);
     }
     
     
     public void raiseGripper() {
         gripperLowerLeft.setPosition(0.5);
         gripperLowerRight.setPosition(0.5);
-        // gripperUpperLeft.setPosition(0);
-        // gripperUpperRight.setPosition(0);
+        gripperUpperLeft.setPosition(0);
+        gripperUpperRight.setPosition(0);
     }
     
     
     public void lowerIntake() {
-        // intakeLiftMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-        // intakeLiftMotor.setTargetPosition(1000);
+        intakeLiftMotor.setTargetPosition(1800);
+        intakeLiftMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+        intakeLiftMotor.setVelocity(1500);
         
         intakeLiftLeft.setPosition(1);
         intakeLiftRight.setPosition(1);
@@ -113,11 +131,17 @@ public class RobotHardware {
     
     
     public void raiseIntake() {
-        // intakeLiftMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
-        // intakeLiftMotor.setTargetPosition(1000);
+        intakeLiftMotor.setTargetPosition(795);
+        intakeLiftMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
+        intakeLiftMotor.setVelocity(1500);
         
-        intakeLiftLeft.setPosition(0.5);
-        intakeLiftRight.setPosition(0.5);
+        intakeLiftLeft.setPosition(0.55);
+        intakeLiftRight.setPosition(0.55);
+    }
+    
+    
+    public void hook(double power) {
+        hook.setPower(power);
     }
 
 
@@ -127,7 +151,23 @@ public class RobotHardware {
      */
     public MecanumChassis getMecanumChassis() { return mecanumChassis; }
     
+    public DcMotorEx getHook() { return hook; }
+    
+    public DcMotorEx getIntake() { return intake; }
+    
+    public DcMotorEx getIntakeLiftMotor() { return intakeLiftMotor; }
+    
+    public Servo getIntakeLiftLeft() { return intakeLiftLeft; }
+    
+    public Servo getIntakeLiftRight() { return intakeLiftRight; }
+    
     public Servo getGripperLowerLeft() { return gripperLowerLeft; }
     
     public Servo getGripperLowerRight() { return gripperLowerRight; }
+    
+    public Servo getGripperUpperLeft() { return gripperUpperLeft; }
+    
+    public Servo getGripperUpperRight() { return gripperUpperRight; }
+    
+    public Servo getDroneLauncher() { return droneLauncher; }
 }
